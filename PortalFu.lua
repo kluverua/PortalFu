@@ -213,6 +213,8 @@ function PortalFu:CheckTransport()
 			"Portal: Stormwind",
 			"Teleport: Theramore",
 			"Portal: Theramore",
+			"Teleport: Alah'Thalas",
+			"Portal: Alah'Thalas",
 		},
 		Horde = {
 			"Teleport: Orgrimmar",
@@ -246,6 +248,7 @@ function PortalFu:CheckTransport()
 		[18986] = {name = "Teleport: Gadgetzan"},
 		[51312] = {name = "Portable Wormhole Generator: Stormwind"},
 		[51313] = {name = "Portable Wormhole Generator: Orgrimmar"},
+		[5976] = {name = "Guild Tabard"},
 	}
 end
 
@@ -305,7 +308,6 @@ function PortalFu:OnMenuRequest(level,value)
 		if self.METHODS then dewdrop:AddLine() end
 		self:ShowItems()
 		if self.ITEMS then dewdrop:AddLine() end
-		self:ShowTabard()
 		self:ShowHearthstone()
 		dewdrop:AddLine(
 			'text', "FuBar Options",
@@ -409,36 +411,6 @@ function PortalFu:ShowHearthstone()
 		)
 		dewdrop:AddLine()
 	end
-end
-
-function PortalFu:ShowTabard()
-	local itemLink = GetInventoryItemLink("player", 19)
-	if not itemLink then
-		return
-	end
-
-	local itemId = idAndNameFromLink(itemLink)
-	if not itemId == 5976 then
-		return
-	end
-	local text, icon
-	
-	text = "Teleport to your Guild House"
-	icon = GetInventoryItemTexture("player", 19)
-	dewdrop:AddLine(
-		'text', text,
-		'icon', icon,
-		'func', function(icon, text) 
-			self:SetIcon(icon)
-			self.lastCast = text
-			self:UpdateDisplay()
-			UseInventoryItem(19)
-		end,
-		'arg1', icon,
-		'arg2', text,
-		'closeWhenClicked', true
-	)
-	dewdrop:AddLine()
 end
 
 function PortalFu:ShowItems()

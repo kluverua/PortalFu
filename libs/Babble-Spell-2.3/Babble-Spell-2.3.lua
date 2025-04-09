@@ -28,6 +28,8 @@ local BabbleSpell = AceLibrary("AceLocale-2.2"):new(MAJOR_VERSION)
 BabbleSpell:RegisterTranslations("enUS", function()
     return {
 		["Abolish Disease"] = true,
+		["Portal: Alah'Thalas"] = true,
+		["Teleport: Alah'Thalas"] = true,
 		["Abolish Poison Effect"] = true,
 		["Abolish Poison"] = true,
 		["Acid Breath"] = true,
@@ -1460,6 +1462,8 @@ end)
 
 BabbleSpell:RegisterTranslations("ruRU", function()
 	return {
+		["Teleport: Alah'Thalas"] = "Телепорт: Alah'Thalas",
+		["Portal: Alah'Thalas"] = "Портал: Alah'Thalas",
 		["Abolish Disease"] = "Устранение болезни",
 		["Abolish Poison Effect"] = "Эффект устранения яда",
 		["Abolish Poison"] = "Устранение яда",
@@ -2892,6 +2896,8 @@ end)
 
 BabbleSpell:RegisterTranslations("deDE", function()
 	return {
+		["Teleport: Alah'Thalas"] = true,
+		["Portal: Alah'Thalas"] = true,
 		["Abolish Disease"] = "Krankheit aufheben",
 		["Abolish Poison Effect"] = "Vergiftung aufheben - Effekt",
 		["Abolish Poison"] = "Vergiftung aufheben",
@@ -4280,6 +4286,8 @@ end)
 
 BabbleSpell:RegisterTranslations("frFR", function()
 	return {
+		["Teleport: Alah'Thalas"] = true,
+		["Portal: Alah'Thalas"] = true,
 		["Abolish Disease"] = "Abolir maladie",
 		["Abolish Poison Effect"] = "Effet Abolir le poison",
 		["Abolish Poison"] = "Abolir le poison",
@@ -5428,6 +5436,8 @@ end)
 
 BabbleSpell:RegisterTranslations("zhCN", function()
 	return {
+		["Teleport: Alah'Thalas"] = true,
+		["Portal: Alah'Thalas"] = true,
 		["Abolish Disease"] = "驱除疾病",
 		["Abolish Poison Effect"] = "驱毒术效果",
 		["Abolish Poison"] = "驱毒术",
@@ -6574,6 +6584,8 @@ end)
 
 BabbleSpell:RegisterTranslations("zhTW", function()
 	return {
+		["Teleport: Alah'Thalas"] = true,
+		["Portal: Alah'Thalas"] = true,
 		["Abolish Disease"] = "驅除疾病",
 		["Abolish Poison Effect"] = "驅毒術效果",
 		["Abolish Poison"] = "驅毒術",
@@ -7721,6 +7733,8 @@ end)
 
 BabbleSpell:RegisterTranslations("koKR", function()
 	return {
+		["Teleport: Alah'Thalas"] = true,
+		["Portal: Alah'Thalas"] = true,
 		["Abolish Disease"] = "질병 해제",
 		["Abolish Poison Effect"] = "독 해제 효과",
 		["Abolish Poison"] = "독 해제",
@@ -8870,6 +8884,8 @@ BabbleSpell:RegisterTranslations("koKR", function()
 end)
 
 local spellIcons = {
+	["Teleport: Alah'Thalas"] = "Spell_Arcane_TeleportStormWind",
+	["Portal: Alah'Thalas"] = "Spell_Arcane_PortalStormWind",
 	--	["Anesthetic Poison"] = true,
 	--	["Anguish"] = true,
 	--	["Arcane Blast"] = true,
