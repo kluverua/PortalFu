@@ -1,10 +1,10 @@
-## Interface: 30300
-## Title: FuBar - |cffffffffPortal|r|cff00ff00Fu|r
+## Interface: 11200
+## Title: FuBar - |cffffffffPortal|r|cff00ff00Fu|r Turtle
 ## Notes: Provides access to all teleporting spells and items on right click of minimap button.
 ## Author: CrazyBenny of Stormrage-EU
 ## X-Email: s_m AT centrum DOT cz
-## LastUpdate: 2010-09-05T14:37:40Z
-## Version: 1.17
+## LastUpdate: 2025-04-09T14:37:40Z
+## Version: 2.0
 ## X-Curse-Packaged-Version: 1.17
 ## X-Curse-Project-Name: FuBar_PortalFu
 ## X-Curse-Project-ID: portalfu
