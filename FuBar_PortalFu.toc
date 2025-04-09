@@ -1,5 +1,5 @@
 ## Interface: 11200
-## Title: FuBar - |cffffffffPortal|r|cff00ff00Fu|r Turtle
+## Title: FuBar - |cffffffffPortal|r|cff00ff00Fu|r |cff7fff7f TurtleWOW|r
 ## Notes: Provides access to all teleporting spells and items on right click of minimap button.
 ## Author: CrazyBenny of Stormrage-EU
 ## X-Email: s_m AT centrum DOT cz
