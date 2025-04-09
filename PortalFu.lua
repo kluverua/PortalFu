@@ -305,6 +305,7 @@ function PortalFu:OnMenuRequest(level,value)
 		if self.METHODS then dewdrop:AddLine() end
 		self:ShowItems()
 		if self.ITEMS then dewdrop:AddLine() end
+		self:ShowTabard()
 		self:ShowHearthstone()
 		dewdrop:AddLine(
 			'text', "FuBar Options",
@@ -400,7 +401,7 @@ function PortalFu:ShowHearthstone()
 				self:SetIcon(icon)
 				self.lastCast = text
 				self:UpdateDisplay()
-				UseItemByName(L["HEARTHSTONE"])
+				UseHearthstone()
 			end,
 			'arg1', icon,
 			'arg2', text,
@@ -408,6 +409,36 @@ function PortalFu:ShowHearthstone()
 		)
 		dewdrop:AddLine()
 	end
+end
+
+function PortalFu:ShowTabard()
+	local itemLink = GetInventoryItemLink("player", 19)
+	if not itemLink then
+		return
+	end
+
+	local itemId = idAndNameFromLink(itemLink)
+	if not itemId == 5976 then
+		return
+	end
+	local text, icon
+	
+	text = "Teleport to your Guild House"
+	icon = GetInventoryItemTexture("player", 19)
+	dewdrop:AddLine(
+		'text', text,
+		'icon', icon,
+		'func', function(icon, text) 
+			self:SetIcon(icon)
+			self.lastCast = text
+			self:UpdateDisplay()
+			UseInventoryItem(19)
+		end,
+		'arg1', icon,
+		'arg2', text,
+		'closeWhenClicked', true
+	)
+	dewdrop:AddLine()
 end
 
 function PortalFu:ShowItems()
@@ -435,7 +466,7 @@ end
 function PortalFu:OnClick()
 	if self.lastCast and self.lastCast ~= L["N/A"] then
 		if string_find(self.lastCast,L["INN"]) then
-			UseItemByName(L["HEARTHSTONE"])
+			UseHearthstone()
 		elseif string_find(self.lastCast,"Item:") then
 			local _, _, id = string_find(self.lastCast,"Item:(%d+)")
 			id = tonumber(id)
@@ -449,6 +480,18 @@ function PortalFu:OnClick()
 			CastSpellByName(self.lastCast)
 		end
 	else
-		UseItemByName(L["HEARTHSTONE"])
+		UseHearthstone()
+	end
+end
+
+function UseHearthstone()
+	for bag = 0, 4 do
+		for slot = 1, GetContainerNumSlots(bag) do
+			local itemLink = GetContainerItemLink(bag, slot)
+			if itemLink and string.find(itemLink, "Hearthstone") then
+				UseContainerItem(bag, slot)
+				return
+			end
+		end
 	end
 end
