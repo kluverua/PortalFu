@@ -1290,7 +1290,7 @@ overlay:SetTexture("Interface\\Minimap\\MiniMap-TrackingBorder")
 		frame:RegisterForClicks("LeftButtonUp")
 		frame.plugin = plugin
 		frame:SetScript("OnClick", function()
-			if type(plugin.OnClick) == "function" then
+			if type(plugin.OnClick) == "function" and arg1 == "LeftButton" then
 				if not this.dragged then
 					plugin:OnClick(arg1)
 				end

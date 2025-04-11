@@ -4,7 +4,6 @@ local PortalFu = PortalFu
 local L = AceLibrary("AceLocale-2.2"):new("PortalFu")
 local tablet = AceLibrary("Tablet-2.0")
 local dewdrop = AceLibrary("Dewdrop-2.0")
-local BS = AceLibrary:HasInstance("Babble-Spell-2.3") and AceLibrary("Babble-Spell-2.3")
 
 local string_find = string.find
 local string_sub = string.sub
@@ -203,7 +202,7 @@ end
 
 function PortalFu:CheckTransport()
 
-	local mageSpells = {
+	local allSpells = {
 		Alliance = {
 			"Teleport: Darnassus",
 			"Teleport: Ironforge",
@@ -225,21 +224,31 @@ function PortalFu:CheckTransport()
 			"Portal: Undercity",
 			"Teleport: Stonard",
 			"Portal: Stonard",
+		},
+		Druid = {
+			"Teleport: Moonglade" --18960 --TP:Moonglade
+		},
+		Shaman = {
+			"Astral Recall" -- 556 --
 		}
 	}
-
-	local _, class = UnitClass("player")
-	if class == "MAGE" then
-		local faction = UnitFactionGroup('player')
-		self.portals = mageSpells[faction]
-	elseif class == "DRUID" then
-		self.portals = {
-			"Teleport: Moonglade" --18960 --TP:Moonglade
-			}
-	elseif class == "SHAMAN" then
-		self.portals = {
-			"Astral Recall" -- 556 --
-			}
+	local faction = UnitFactionGroup('player')
+	if faction == nil then --GM
+		self.portals = {}
+		for _, spells in pairs(allSpells) do
+			for _, spell in ipairs(spells) do
+				table.insert(self.portals, spell)
+			end
+		end
+	else
+		local _, class = UnitClass("player")
+		if class == "MAGE" then
+			self.portals = allSpells[faction]
+		elseif class == "DRUID" then
+			self.portals = allSpells.Druid
+		elseif class == "SHAMAN" then
+			self.portals = allSpells.Shaman
+		end
 	end
 
 	self.teleItems = {
@@ -359,8 +368,8 @@ end
 function PortalFu:UpdateSpells()
 	if self.portals then
 		for _,unTransSpell in ipairs(self.portals) do
-			local spell = BS[unTransSpell]
-			local spellIcon = BS:GetSpellIcon(unTransSpell)
+			local spell = L[unTransSpell]
+			local spellIcon = self:GetSpellIcon(unTransSpell)
 			local spellid = findSpell(spell)
 			
 			if spellid then	
@@ -372,6 +381,37 @@ function PortalFu:UpdateSpells()
 			end
 		end
 	end
+end
+
+local spellIcons = {
+	["Astral Recall"] = "Spell_Nature_AstralRecal",
+	["Portal: Alah'Thalas"] = "Spell_Arcane_PortalStormWind",
+	["Portal: Darnassus"] = "Spell_Arcane_PortalDarnassus",
+	["Portal: Ironforge"] = "Spell_Arcane_PortalIronForge",
+	["Portal: Orgrimmar"] = "Spell_Arcane_PortalOrgrimmar",
+	["Portal: Stormwind"] = "Spell_Arcane_PortalStormWind",
+	["Portal: Thunder Bluff"] = "Spell_Arcane_PortalThunderBluff",
+	["Portal: Undercity"] = "Spell_Arcane_PortalUnderCity",
+	["Portal: Stonard"] = "Spell_Arcane_PortalStonard",
+	["Portal: Theramore"] = "Spell_Arcane_PortalTheramore",
+	["Teleport: Alah'Thalas"] = "Spell_Arcane_TeleportStormWind",
+	["Teleport: Darnassus"] = "Spell_Arcane_TeleportDarnassus",
+	["Teleport: Ironforge"] = "Spell_Arcane_TeleportIronForge",
+	["Teleport: Moonglade"] = "Spell_Arcane_TeleportMoonglade",
+	["Teleport: Orgrimmar"] = "Spell_Arcane_TeleportOrgrimmar",
+	["Teleport: Stormwind"] = "Spell_Arcane_TeleportStormWind",
+	["Teleport: Thunder Bluff"] = "Spell_Arcane_TeleportThunderBluff",
+	["Teleport: Undercity"] = "Spell_Arcane_TeleportUnderCity",
+	["Teleport: Stonard"] = "Spell_Arcane_TeleportStonard",
+	["Teleport: Theramore"] = "Spell_Arcane_TeleportTheramore",
+}
+
+function PortalFu:GetSpellIcon(spell)
+	local icon = spellIcons[spell]
+	if not icon then
+		return scrollOfRecallIcon
+	end
+	return "Interface\\Icons\\" .. icon
 end
 
 function PortalFu:UpdateItems()

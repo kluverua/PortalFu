@@ -3,8 +3,8 @@
 ## Notes: Provides access to all teleporting spells and items on right click of minimap button.
 ## Author: CrazyBenny of Stormrage-EU
 ## X-Email: s_m AT centrum DOT cz
-## LastUpdate: 2025-04-09T14:37:40Z
-## Version: 2.0
+## LastUpdate: 2025-04-11T14:37:40Z
+## Version: 2.1
 ## X-Curse-Packaged-Version: 1.17
 ## X-Curse-Project-Name: FuBar_PortalFu
 ## X-Curse-Project-ID: portalfu
@@ -27,7 +27,6 @@ libs\AceDB-2.0\AceDB-2.0.lua
 libs\Dewdrop-2.0\Dewdrop-2.0.lua
 libs\Tablet-2.0\Tablet-2.0.lua
 libs\FuBarPlugin-2.0\FuBarPlugin-2.0.lua
-libs\Babble-Spell-2.3\Babble-Spell-2.3.lua
 #@end-no-lib-strip@
 
 locales.lua
