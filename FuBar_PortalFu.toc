@@ -1,14 +1,10 @@
 ## Interface: 11200
 ## Title: FuBar - |cffffffffPortal|r|cff00ff00Fu|r |cff7fff7f TurtleWOW|r
 ## Notes: Provides access to all teleporting spells and items on right click of minimap button.
-## Author: CrazyBenny of Stormrage-EU
+## Author: CrazyBenny of Stormrage-EU && Anny
 ## X-Email: s_m AT centrum DOT cz
 ## LastUpdate: 2025-04-20T14:37:40Z
 ## Version: 2.2
-## X-Curse-Packaged-Version: 1.17
-## X-Curse-Project-Name: FuBar_PortalFu
-## X-Curse-Project-ID: portalfu
-## X-Curse-Repository-ID: wow/portalfu/mainline
 
 ## X-Credits: Prandur, Ruldar for TransporterFu, the inspiration behind this addon
 
