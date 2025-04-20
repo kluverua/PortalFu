@@ -3,8 +3,8 @@
 ## Notes: Provides access to all teleporting spells and items on right click of minimap button.
 ## Author: CrazyBenny of Stormrage-EU
 ## X-Email: s_m AT centrum DOT cz
-## LastUpdate: 2025-04-11T14:37:40Z
-## Version: 2.1
+## LastUpdate: 2025-04-20T14:37:40Z
+## Version: 2.2
 ## X-Curse-Packaged-Version: 1.17
 ## X-Curse-Project-Name: FuBar_PortalFu
 ## X-Curse-Project-ID: portalfu
