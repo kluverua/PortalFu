@@ -475,7 +475,10 @@ function PortalFu:ShowItems()
 	end
 end
 
-function PortalFu:OnClick()
+function PortalFu:OnClick(button)
+	if button == "RightButton" then
+		return
+	end
 	if self.lastCast and self.lastCast ~= L["N/A"] then
 		if string_find(self.lastCast,L["INN"]) then
 			UseHearthstone()
