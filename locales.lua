@@ -74,6 +74,43 @@ L:RegisterTranslations("ruRU", function() return
 
 end)
 
+L:RegisterTranslations("esES", function() return
+{
+  HEARTHSTONE = "Piedra de hogar",
+	INN = "Posada:",
+	MIN = "min",
+	["N/A"] = "N/D",
+	P_RUNE = "Runa de portales",
+	RCLICK = "Clic derecho",
+	READY = "Listo",
+	SCROLL_3 = "Pergamino de regreso III",
+	SEE_SPELLS = "para ver la lista de hechizos",
+	TP_P = "Teletransportes / Portales",
+	TP_RUNE = "Runa de teletransporte",
+	["Astral Recall"] = true,
+  ["Portal: Darnassus"] = true,
+  ["Portal: Ironforge"] = true,
+  ["Portal: Orgrimmar"] = true,
+  ["Portal: Stormwind"] = true,
+  ["Portal: Thunder Bluff"] = true,
+  ["Portal: Undercity"] = true,
+  ["Portal: Stonard"] = true,
+  ["Portal: Theramore"] = true,
+  ["Portal: Alah'Thalas"] = true,
+  ["Teleport: Darnassus"] = true,
+  ["Teleport: Ironforge"] = true,
+  ["Teleport: Moonglade"] = true,
+  ["Teleport: Orgrimmar"] = true,
+  ["Teleport: Stormwind"] = true,
+  ["Teleport: Thunder Bluff"] = true,
+  ["Teleport: Undercity"] = true,
+  ["Teleport: Stonard"] = true,
+  ["Teleport: Theramore"] = true,
+  ["Teleport: Alah'Thalas"] = true,
+}
+
+end)
+
 L:RegisterTranslations("deDE", function() return
 {
 	HEARTHSTONE = "Ruhestein",
